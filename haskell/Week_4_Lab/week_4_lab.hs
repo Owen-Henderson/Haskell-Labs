@@ -1,3 +1,4 @@
+--Ex 1)
 gradeBands :: [(String, Int)] -> (Int, Int, Int, Int, Int, Int)
 gradeBands = foldr updateCounts initialCounts
     where
@@ -12,3 +13,6 @@ gradeBands = foldr updateCounts initialCounts
             |score >= 60 && score < 70 = (a, b, c, d, e+1, f)
             |otherwise = (a, b, c, d, e, f+1)
 
+--Ex 2)
+map :: (a -> a) -> [a] -> [a]
+map = 

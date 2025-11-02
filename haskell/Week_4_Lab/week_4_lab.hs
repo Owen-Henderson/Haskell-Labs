@@ -14,5 +14,37 @@ gradeBands = foldr updateCounts initialCounts
             |otherwise = (a, b, c, d, e, f+1)
 
 --Ex 2)
-map :: (a -> a) -> [a] -> [a]
-map = 
+map' :: (a -> b) -> [a] -> [b]
+map' f = foldr ((:).f) []
+
+--b)
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' p = foldr (\x acc -> if p x then x : acc else acc) []
+
+--Ex 4)
+maximum' :: [Int] -> Int
+maximum' (x:xs) = foldl max x xs
+
+--Ex 5)
+--a)
+add3 :: [Int] -> [Int]
+add3 xs = [x + 3 | x <- xs]
+
+--b)
+lessThan7 :: [Int] -> [Int]
+lessThan7 xs = [x | x <- xs, x < 7]
+
+--c)
+concat' :: [a] -> [a] -> [(a, a)]
+concat' xs ys = [(x, y) | x <- xs, y <- ys]
+
+--concat (map (\x -> map (\y -> (x,y)) ys) xs)
+
+--d)
+filter'' :: [(Int, Int)] -> [Int]
+filter'' xys = [uncurry (+) a | a <- xys, uncurry (+) a >3]
+
+--Ex 6) It does literally nothing, its stupid and shouldnt exist
+
+--Ex 7)
+
